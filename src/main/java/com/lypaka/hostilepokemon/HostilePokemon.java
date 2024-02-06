@@ -1,7 +1,6 @@
 package com.lypaka.hostilepokemon;
 
 import com.lypaka.hostilepokemon.Listeners.EntityAttributeModificationListener;
-import com.lypaka.lypakautils.ConfigurationLoaders.BasicConfigManager;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
