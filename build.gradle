@@ -13,7 +13,7 @@ apply plugin: 'net.minecraftforge.gradle'
 
 
 group = 'com.lypaka'
-version = '1.16.5-1.0.0'
+version = '1.16.5-1.1.0'
 
 java {
     archivesBaseName = 'HostilePokemon'
@@ -107,6 +107,7 @@ dependencies {
     // The userdev artifact is a special name and will get all sorts of transformations applied to it.
     minecraft 'net.minecraftforge:forge:1.16.5-36.2.39'
     compileOnly fileTree(dir: 'C:\\Users\\ryan9\\Documents\\GitHub\\LIBRARIES', include: ['Reforged.jar'])
+    compileOnly fileTree(dir: 'C:\\Users\\ryan9\\Documents\\GitHub\\LIBRARIES', include: ['LypakaUtils-1.16.5.jar'])
 
     // Real mod deobf dependency examples - these get remapped to your current mappings
     // compileOnly fg.deobf("mezz.jei:jei-${mc_version}:${jei_version}:api") // Adds JEI API as a compile dependency

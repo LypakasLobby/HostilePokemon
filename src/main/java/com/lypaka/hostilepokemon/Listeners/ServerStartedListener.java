@@ -1,6 +1,7 @@
 package com.lypaka.hostilepokemon.Listeners;
 
 import com.lypaka.hostilepokemon.HostilePokemon;
+import com.pixelmonmod.pixelmon.Pixelmon;
 import com.pixelmonmod.pixelmon.api.config.PixelmonConfigProxy;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -22,6 +23,7 @@ public class ServerStartedListener {
         }
         MinecraftForge.EVENT_BUS.register(new DeathListener());
         MinecraftForge.EVENT_BUS.register(new SmackListener());
+        Pixelmon.EVENT_BUS.register(new SpawnListener());
 
     }
 
