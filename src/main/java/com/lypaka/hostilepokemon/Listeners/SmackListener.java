@@ -1,6 +1,7 @@
 package com.lypaka.hostilepokemon.Listeners;
 
 import com.lypaka.hostilepokemon.API.SetHostileEvent;
+import com.lypaka.hostilepokemon.HostilePokemon;
 import com.pixelmonmod.pixelmon.entities.pixelmon.PixelmonEntity;
 import net.minecraft.entity.ai.attributes.Attributes;
 import net.minecraft.entity.ai.goal.MeleeAttackGoal;
@@ -22,14 +23,11 @@ public class SmackListener {
                 PixelmonEntity pixelmon = (PixelmonEntity) event.getEntityLiving();
                 double defaultAtk = pixelmon.getAttributeValue(Attributes.ATTACK_DAMAGE);
                 double defaultSpd = pixelmon.getAttributeValue(Attributes.ATTACK_SPEED);
-                SetHostileEvent hostileEvent = new SetHostileEvent(player, pixelmon, defaultAtk, defaultSpd);
+                SetHostileEvent hostileEvent = new SetHostileEvent(player, pixelmon, defaultAtk, defaultSpd, 1.5);
                 MinecraftForge.EVENT_BUS.post(hostileEvent);
                 if (!hostileEvent.isCanceled()) {
 
-                    pixelmon.getAttribute(Attributes.ATTACK_DAMAGE).setBaseValue(hostileEvent.getAttackDamage());
-                    pixelmon.getAttribute(Attributes.ATTACK_SPEED).setBaseValue(hostileEvent.getAttackSpeed());
-                    pixelmon.setAttackTarget(player);
-                    pixelmon.goalSelector.addGoal(0, new MeleeAttackGoal(pixelmon, 1.5, true));
+                    HostilePokemon.setHostile(pixelmon, player, hostileEvent.getAttackDamage(), hostileEvent.getAttackSpeed(), hostileEvent.getMovementSpeed());
 
                 }
 

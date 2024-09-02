@@ -17,13 +17,15 @@ public class SetHostileEvent extends Event {
     private final PixelmonEntity pixelmon;
     private double attackDamage;
     private double attackSpeed;
+    private double movementSpeed;
 
-    public SetHostileEvent (ServerPlayerEntity player, PixelmonEntity pixelmon, double attackDamage, double attackSpeed) {
+    public SetHostileEvent (ServerPlayerEntity player, PixelmonEntity pixelmon, double attackDamage, double attackSpeed, double movementSpeed) {
 
         this.player = player;
         this.pixelmon = pixelmon;
         this.attackDamage = attackDamage;
         this.attackSpeed = attackSpeed;
+        this.movementSpeed = movementSpeed;
 
     }
 
@@ -60,6 +62,18 @@ public class SetHostileEvent extends Event {
     public void setAttackSpeed (double spd) {
 
         this.attackSpeed = spd;
+
+    }
+
+    public double getMovementSpeed() {
+
+        return movementSpeed;
+
+    }
+
+    public void setMovementSpeed (double spd) {
+
+        this.movementSpeed = spd;
 
     }
 

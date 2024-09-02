@@ -2,6 +2,7 @@ package com.lypaka.hostilepokemon.Listeners;
 
 import com.lypaka.hostilepokemon.API.SetHostileEvent;
 import com.lypaka.hostilepokemon.ConfigGetters;
+import com.lypaka.hostilepokemon.HostilePokemon;
 import com.pixelmonmod.pixelmon.api.events.spawning.SpawnEvent;
 import com.pixelmonmod.pixelmon.api.util.helpers.RandomHelper;
 import com.pixelmonmod.pixelmon.entities.pixelmon.PixelmonEntity;
@@ -28,14 +29,11 @@ public class SpawnListener {
                     PixelmonEntity pixelmon = (PixelmonEntity) event.action.getOrCreateEntity();
                     double defaultAtk = pixelmon.getAttributeValue(Attributes.ATTACK_DAMAGE);
                     double defaultSpd = pixelmon.getAttributeValue(Attributes.ATTACK_SPEED);
-                    SetHostileEvent hostileEvent = new SetHostileEvent(player, pixelmon, defaultAtk, defaultSpd);
+                    SetHostileEvent hostileEvent = new SetHostileEvent(player, pixelmon, defaultAtk, defaultSpd, 1.5);
                     MinecraftForge.EVENT_BUS.post(hostileEvent);
                     if (!hostileEvent.isCanceled()) {
 
-                        pixelmon.getAttribute(Attributes.ATTACK_DAMAGE).setBaseValue(hostileEvent.getAttackDamage());
-                        pixelmon.getAttribute(Attributes.ATTACK_SPEED).setBaseValue(hostileEvent.getAttackSpeed());
-                        pixelmon.setAttackTarget(player);
-                        pixelmon.goalSelector.addGoal(0, new MeleeAttackGoal(pixelmon, 1.5, true));
+                        HostilePokemon.setHostile(pixelmon, player, hostileEvent.getAttackDamage(), hostileEvent.getAttackSpeed(), hostileEvent.getMovementSpeed());
 
                     }
 
