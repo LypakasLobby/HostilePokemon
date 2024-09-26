@@ -43,6 +43,7 @@ public class HostilePokemon {
         pixelmon.getAttribute(Attributes.ATTACK_SPEED).setBaseValue(attackSpeed);
         pixelmon.setAttackTarget(player);
         pixelmon.goalSelector.addGoal(0, new MeleeAttackGoal(pixelmon, movementSpeed, true));
+        pixelmon.getPersistentData().putBoolean("IsHostile", true);
 
     }
 

@@ -13,7 +13,7 @@ apply plugin: 'net.minecraftforge.gradle'
 
 
 group = 'com.lypaka'
-version = '1.16.5-1.2.0'
+version = '1.16.5-1.2.1'
 
 java {
     archivesBaseName = 'HostilePokemon'
